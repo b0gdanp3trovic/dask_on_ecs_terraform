@@ -1,0 +1,35 @@
+[
+    {
+        "name": "container-scheduler",
+        "image": "daskdev/dask:latest",
+        "cpu": 800,
+        "memory": 800,
+        "portMappings": [
+            {
+                "containerPort": 8786,
+                "hostPort": 8786,
+                "protocol": "tcp"
+            },
+            {
+                "containerPort": 8787,
+                "hostPort": 8787,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "command": [
+            "dask-scheduler"
+        ],
+        "environment": [],
+        "mountPoints": [],
+        "volumesFrom": [],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/dask-scheduler-ec2",
+                "awslogs-region": "eu-central-1",
+                "awslogs-stream-prefix": "ecs"
+            }
+        }
+    }
+]

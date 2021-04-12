@@ -1,0 +1,25 @@
+[
+    {
+        "name": "container-worker",
+        "image": "daskdev/dask:latest",
+        "cpu": 800,
+        "memory": 800,
+        "portMappings": [],
+        "essential": true,
+        "command": [
+            "dask-worker",
+            "sc.ds:8786"
+        ],
+        "environment": [],
+        "mountPoints": [],
+        "volumesFrom": [],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/dask-worker-ec2",
+                "awslogs-region": "eu-central-1",
+                "awslogs-stream-prefix": "ecs"
+            }
+        }
+    }
+]

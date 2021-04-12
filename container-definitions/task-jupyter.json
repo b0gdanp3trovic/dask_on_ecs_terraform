@@ -1,0 +1,34 @@
+[
+    {
+        "name": "container-jupyter",
+        "image": "jupyter/datascience-notebook",
+        "cpu": 800,
+        "memory": 800,
+        "portMappings": [
+            {
+                "containerPort": 8888,
+                "hostPort": 8888,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "command": [],
+        "environment": [
+            {
+                "name": "JUPYTER_ENABLE_LAB",
+                "value": "yes"
+            }
+        ],
+        "mountPoints": [],
+        "volumesFrom": [],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/jupyter",
+                "awslogs-region": "eu-central-1",
+                "awslogs-stream-prefix": "ecs"
+            }
+        }
+    }
+]
