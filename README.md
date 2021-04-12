@@ -7,25 +7,26 @@ you need to run "aws configure" and set your user credentials and region "eu-cen
 
 
 1. Install Terraform
-2. Locate to this folder and run "terraform init"
+2. Locate to this folder and run `terraform init`
 3. From AWS Console, download your IAM credentials (AccessKeyId and AWSSecretKey) and save them as environment variables, so terraform can read them 
-4. Run "terraform apply" (when asked for a region, type "eu-central-1")
+4. Run `terraform apply` (when asked for a region, type `eu-central-1`)
 5. Terraform will output the DNS of the load balancer from which you access the Jupyter Notebook instance
 
 
 
 
 5. Get Jupyter login token 
-aws logs describe-log-streams --log-group-name /ecs/jupyter --query "logStreams[*].logStreamName"
+
+`aws logs describe-log-streams --log-group-name /ecs/jupyter --query "logStreams[*].logStreamName"`
 
 This command will display a name of a log stream, since Jupyter outputs the token in stdout. Then get the token
 
-aws logs filter-log-events --log-group-name /ecs/jupyter --log-stream-names {your_log_stream_name} --query "events[*].message" --filter-pattern "token"
+`aws logs filter-log-events --log-group-name /ecs/jupyter --log-stream-names {your_log_stream_name} --query "events[*].message" --filter-pattern "token"`
 
 6. Configure worker in Jupyter
 
-from dask.distributed import Client
-client = Client('sc.ds:8786')
+`{from dask.distributed import Client
+client = Client('sc.ds:8786')}`
 
 
 
