@@ -67,7 +67,7 @@ resource "aws_autoscaling_group" "asg" {
     max_size = 10
     health_check_grace_period = 300
     vpc_zone_identifier = module.vpc.public_subnets
-    protect_from_scale_in = true
+    protect_from_scale_in = false
 
     lifecycle {
         create_before_destroy = true
