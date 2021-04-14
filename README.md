@@ -25,8 +25,8 @@ This command will display a name of a log stream, since Jupyter outputs the toke
 
 6. Configure worker in Jupyter
 
-`{from dask.distributed import Client
-client = Client('sc.ds:8786')}`
+<code>from dask.distributed import Client
+client = Client('sc.ds:8786')</code>
 
 
 
@@ -36,5 +36,5 @@ you need to set the desired capacity of the autoscaling group as worker desired 
 
 Here we set the number of workers to 4.
 
-aws autoscaling set-desired-capacity --auto-scaling-group-name dask_cluster_asg --desired-capacity 6
-aws ecs update-service --cluster dask-cluster --service service-worker --desired-count 4
+`aws autoscaling set-desired-capacity --auto-scaling-group-name dask_cluster_asg --desired-capacity 6`
+`aws ecs update-service --cluster dask-cluster --service service-worker --desired-count 4`
