@@ -28,8 +28,11 @@ This command will display a name of a log stream, since Jupyter outputs the toke
 
 Connect to the scheduler
 
-`from dask.distributed import Client`
-`client = Client('sc.ds:8786')`
+```
+from dask.distributed import Client
+client = Client('sc.ds:8786')
+```
+
 
 ***IMPORTANT***: We need to have the same version of Pandas in all components throughout the cluster, otherwise it causes problems with serialization/deserialization. Be sure to downgrade Pandas to 1.0.1 in your Jupyter Notebook to make working with Dataframes possible.
 `pip install pandas=='1.0.1'`
