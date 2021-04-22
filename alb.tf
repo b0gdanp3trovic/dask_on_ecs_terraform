@@ -48,7 +48,7 @@ resource "aws_lb_target_group" "jupyter_tg" {
     name = "jupyter-tg"
     port = "8888"
     protocol ="HTTP"
-    target_type = "ip"
+    target_type = "instance"
     vpc_id = data.aws_vpc.main.id
 
     health_check {

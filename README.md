@@ -25,8 +25,8 @@ This command will display a name of a log stream, since Jupyter outputs the toke
 
 6. Configure worker in Jupyter
 
-<code>from dask.distributed import Client
-client = Client('sc.ds:8786')</code>
+`from dask.distributed import Client`
+`client = Client('sc.ds:8786')`
 
 
 

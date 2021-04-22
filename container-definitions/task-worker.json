@@ -2,8 +2,8 @@
     {
         "name": "container-worker",
         "image": "daskdev/dask:latest",
-        "cpu": 800,
-        "memory": 800,
+        "cpu": 900,
+        "memory": 1900,
         "portMappings": [],
         "essential": true,
         "command": [

@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "task_definition_worker" {
 resource "aws_ecs_task_definition" "task_definition_jupyter" {
     family  = "task-jupyter"
     container_definitions = file("container-definitions/task-jupyter.json")
-    network_mode = "awsvpc"
+    network_mode = "bridge"
 }
 
 resource "aws_ecs_service" "service_jupyter" {
@@ -57,10 +57,7 @@ resource "aws_ecs_service" "service_jupyter" {
       ignore_changes = [desired_count]
     }
     
-    network_configuration {
-        subnets = module.vpc.public_subnets
-        security_groups = [aws_security_group.ec2-sg.id]
-    }
+
 
     launch_type = "EC2"
     depends_on = [ aws_lb_listener.jupyter_listener ]
