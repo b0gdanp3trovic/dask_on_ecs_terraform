@@ -16,5 +16,3 @@ if __name__ == "__main__":
     scheduler_instance = client_ecs.describe_container_instances(cluster='dask-cluster', containerInstances=[scheduler_container_instance])['containerInstances'][0]['ec2InstanceId']
 
     client_asg.set_instance_protection(InstanceIds = [jupyter_instance, scheduler_instance], AutoScalingGroupName='dask_cluster_asg', ProtectedFromScaleIn=True)
-
-    #print(client_ecs.describe_services(cluster='dask-cluster', services=['service-jupyter'])['services'][0]['deployments'])

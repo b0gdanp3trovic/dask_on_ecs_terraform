@@ -1,7 +1,7 @@
 [
     {
         "name": "container-jupyter",
-        "image": "jupyter/datascience-notebook",
+        "image": "jupyter/datascience-notebook:r-4.0.3",
         "cpu": 900,
         "memory": 1900,
         "portMappings": [
