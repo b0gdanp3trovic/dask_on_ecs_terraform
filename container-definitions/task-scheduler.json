@@ -2,8 +2,8 @@
     {
         "name": "container-scheduler",
         "image": "daskdev/dask:2021.4.0",
-        "cpu": 900,
-        "memory": 1900,
+        "cpu": 2048,
+        "memory": 3885,
         "portMappings": [
             {
                 "containerPort": 8786,

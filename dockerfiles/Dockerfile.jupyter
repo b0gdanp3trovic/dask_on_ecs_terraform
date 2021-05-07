@@ -1,0 +1,14 @@
+FROM daskdev/dask:2021.4.0
+
+RUN apt-get update -y && \
+    apt-get install -y python3-pip && \
+    python3 -m pip install -U pip && \
+    pip3 install graphviz && \
+    pip3 install wget jupyterlab
+
+EXPOSE 8888
+
+WORKDIR /dask
+
+CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=
+

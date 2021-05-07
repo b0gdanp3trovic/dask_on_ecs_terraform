@@ -1,9 +1,9 @@
 [
     {
         "name": "container-jupyter",
-        "image": "jupyter/datascience-notebook:r-4.0.3",
-        "cpu": 900,
-        "memory": 1900,
+        "image": "bogdanp3trovic/jupyter-dask:latest",
+        "cpu": 2048,
+        "memory": 3885,
         "portMappings": [
             {
                 "containerPort": 8888,
@@ -12,6 +12,7 @@
             }
         ],
         "essential": true,
+        "privileged": true,
         "entryPoint": [],
         "command": [],
         "environment": [

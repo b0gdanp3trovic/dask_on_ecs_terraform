@@ -3,12 +3,28 @@ resource "aws_ecs_cluster" "dask_cluster" {
     capacity_providers = [aws_ecs_capacity_provider.cp.name]
 }
 
+resource "aws_ecs_cluster" "dask_cluster2" {
+    name = var.cluster_name2 
+    capacity_providers = [aws_ecs_capacity_provider.cp2.name]
+}
+
 resource "aws_ecs_capacity_provider" "cp" {
     name = "capacity-provider-dask"
     auto_scaling_group_provider {
       auto_scaling_group_arn = aws_autoscaling_group.asg.arn
-      managed_termination_protection = "ENABLED"
+      managed_termination_protection = "DISABLED"
 
+      managed_scaling {
+        status = "DISABLED"
+      }
+    }
+}
+
+resource "aws_ecs_capacity_provider" "cp2" {
+    name = "capacity-provider-dask2"
+    auto_scaling_group_provider {
+      auto_scaling_group_arn = aws_autoscaling_group.asg2.arn
+      managed_termination_protection = "ENABLED"
       managed_scaling {
         status = "DISABLED"
       }
@@ -35,7 +51,7 @@ resource "aws_ecs_task_definition" "task_definition_jupyter" {
 
 resource "aws_ecs_service" "service_jupyter" {
     name = "service-jupyter"
-    cluster = aws_ecs_cluster.dask_cluster.id
+    cluster = aws_ecs_cluster.dask_cluster2.id
     task_definition = aws_ecs_task_definition.task_definition_jupyter.arn
     desired_count = 1
 
@@ -67,7 +83,7 @@ resource "aws_ecs_service" "service_jupyter" {
 
 resource "aws_ecs_service" "service_scheduler" {
     name = "service-scheduler"
-    cluster = aws_ecs_cluster.dask_cluster.id
+    cluster = aws_ecs_cluster.dask_cluster2.id
     task_definition = aws_ecs_task_definition.task_definition_scheduler.arn
     desired_count = 1
 
