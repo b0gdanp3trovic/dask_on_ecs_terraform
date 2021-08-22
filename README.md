@@ -39,5 +39,5 @@ on Dask scheduler/workers.
 We have only $50 on AWS Educate which is not that much for running a cluster which processes huge amounts of data.
 So to save your credits as much as possible, be sure to set the number of workers to 0 when you are finished working.
 
-If you need any help, email me at bp3201@student.uni-lj.si.
+If you need any help, email me at bp3201@student.uni-lj.si
 
