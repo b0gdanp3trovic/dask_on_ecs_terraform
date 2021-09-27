@@ -36,8 +36,8 @@ on Dask scheduler/workers.
 7. Increase or decrease number of workers at will by running the `num_workers.py` script. Example usage:
 `num_workers.py 4`
 
-We have only $50 on AWS Educate which is not that much for running a cluster which processes huge amounts of data.
-So to save your credits as much as possible, be sure to set the number of workers to 0 when you are finished working.
 
-If you need any help, email me at bp3201@student.uni-lj.si
+
+
+
 
